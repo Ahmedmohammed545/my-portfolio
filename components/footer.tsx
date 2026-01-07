@@ -1,4 +1,4 @@
-import Link from "next/link"
+dimport Link from "next/link"
 import { CONTACT_EMAIL } from "@/lib/siteConfig"
 
 export function Footer() {
@@ -49,7 +49,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Ahmed Mohammed. All rights reserved.
+          © {new Date().getFullYear()} Ahmed Mohammedseid. All rights reserved.
         </div>
       </div>
     </footer>
