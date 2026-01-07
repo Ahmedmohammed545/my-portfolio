@@ -90,9 +90,9 @@ export const projects: Project[] = [
     problem:
       "Quality computer science education is scarce in Ethiopia. While AddisCoder exists, it only accepts ~50 students annually. Hundreds of motivated students lack structured learning paths and mentorship to develop their programming skills.",
     processSteps: [
-      "Designed 12-week curriculum covering Python basics through advanced DSA",
+      "Designed 2-week curriculum covering Python basics through advanced DSA",
       "Created 50+ practice problems with test cases and solutions",
-      "Recruited and trained 3 co-instructors to ensure quality instruction",
+      "worked with 2 co-instructors to ensure quality instruction",
       "Held weekly live coding sessions and office hours",
       "Provided personalized code reviews and mentorship",
     ],
@@ -100,7 +100,6 @@ export const projects: Project[] = [
       "40+ students successfully completed the full program",
       "Students gained skills to compete in programming competitions",
       "3 alumni were accepted to the next AddisCoder cohort",
-      "Program continues to run with new cohorts each semester",
     ],
     tools: ["Python", "Jupyter Notebooks", "Zoom", "GitHub"],
     coverImage: "/projects/prime-adcoder/cover.jpg",
@@ -119,13 +118,13 @@ export const projects: Project[] = [
     tags: ["Computer Science", "Personal Development"],
     oneLineHook: "Intensive computer science bootcamp – one of ~50 selected from ~1,000 applicants",
     overview:
-      "AddisCoder is a rigorous 5-week summer program teaching computer science fundamentals to Ethiopian high school students. I was selected as one of approximately 50 students from nearly 1,000 applicants to participate in the 2024 cohort.",
+      "AddisCoder is a rigorous 4-week summer program teaching computer science fundamentals to Ethiopian high school students. I was selected as one of approximately 50 students from nearly 1,000 applicants to participate in the 2024 cohort.",
     problem:
       "I wanted to accelerate my computer science learning and gain exposure to university-level concepts. AddisCoder offered an intensive, structured environment with experienced instructors and a cohort of highly motivated peers.",
     processSteps: [
-      "Completed competitive application process including coding challenges",
+      "Completed competitive application process ",
       "Attended daily lectures on algorithms, data structures, and problem-solving",
-      "Solved 100+ programming problems across various difficulty levels",
+      "Solved 500+ programming problems across various difficulty levels",
       "Collaborated on group projects implementing learned concepts",
       "Participated in mock programming competitions",
     ],
@@ -145,7 +144,7 @@ export const projects: Project[] = [
   {
     slug: "it-internship",
     title: "IT Department Internship – Lebawi International Academy",
-    yearOrGrade: "Summer 2023",
+    yearOrGrade: "Summer 2024",
     type: "Internship / Computer Science",
     role: "IT Intern",
     tags: ["Internship", "Computer Science"],
@@ -157,14 +156,14 @@ export const projects: Project[] = [
     processSteps: [
       "Mapped network requirements and assisted with Wi-Fi expansion to new buildings",
       "Configured and deployed 15+ teacher computers with required software",
-      "Installed and troubleshot 20+ software packages across various machines",
+      "Installed and troubleshot software packages across various machines",
       "Set up Safe Exam Browser on 50+ student computers for standardized testing",
       "Documented processes and created maintenance guides for future staff",
     ],
     impactBullets: [
       "Enabled reliable internet access for 200+ additional students",
       "Reduced teacher setup time by creating standardized computer images",
-      "Ensured secure, fair testing environment for 500+ students",
+      "Ensured secure, fair testing environment for 100+ students",
       "Gained practical experience in enterprise IT operations",
     ],
     tools: ["Windows", "Networking", "Safe Exam Browser", "IT Support"],
@@ -178,7 +177,7 @@ export const projects: Project[] = [
   {
     slug: "mun",
     title: "Model United Nations (MUN)",
-    yearOrGrade: "Grade 10-11",
+    yearOrGrade: "Grade 9",
     type: "Debate / Leadership",
     role: "Delegate",
     tags: ["Debate", "Leadership"],
@@ -210,13 +209,13 @@ export const projects: Project[] = [
   {
     slug: "robotics",
     title: "Robotics Team – Ethiopian Robotics Organization",
-    yearOrGrade: "Grade 9-10",
+    yearOrGrade: "Grade 10",
     type: "Robotics / Computer Science",
-    role: "Design & Programming Team Member",
+    role: "Designer & Team Leader",
     tags: ["Robotics", "Computer Science"],
     oneLineHook: "Building and programming robots for competitive challenges",
     overview:
-      "Member of a competitive robotics team, working on robot design, construction, and programming. Collaborated with teammates to build autonomous and remote-controlled robots for various challenge scenarios.",
+      "Leader of a competitive robotics team, working on robot design, construction, and programming. Collaborated with teammates to build autonomous and remote-controlled robots for various challenge scenarios.",
     problem:
       "I wanted hands-on experience applying programming and engineering concepts to real physical systems. Robotics competitions provided a structured environment to learn mechanical design, sensors, actuators, and control systems.",
     processSteps: [
@@ -224,13 +223,13 @@ export const projects: Project[] = [
       "Programmed robot behaviors using block-based and text-based languages",
       "Tested and debugged robot performance through iterative refinement",
       "Participated in team strategy sessions and competition preparation",
-      "Competed in regional robotics competitions",
+      "Competed in continental robotics competitions",
     ],
     impactBullets: [
       "Qualified for continental-level robotics competition",
       "Learned to integrate hardware and software systems",
       "Developed troubleshooting skills under time pressure",
-      "Strengthened teamwork and communication abilities",
+      "Won the best design award",
     ],
     tools: ["Arduino", "Block Programming", "Mechanical Design"],
     coverImage: "/projects/robotics/cover.jpg",
@@ -241,7 +240,7 @@ export const projects: Project[] = [
   {
     slug: "alx-expense",
     title: "ALX Hackathon – Expense Management System",
-    yearOrGrade: "Grade 11",
+    yearOrGrade: "Grade 10",
     type: "Hackathon / Computer Science",
     role: "Team Member / Developer",
     tags: ["Hackathon", "Computer Science"],
@@ -273,7 +272,7 @@ export const projects: Project[] = [
   {
     slug: "nasa-space-apps",
     title: "NASA Space Apps Challenge",
-    yearOrGrade: "Grade 10",
+    yearOrGrade: "Grade 11",
     type: "Hackathon / Computer Science",
     role: "Team Member / Developer",
     tags: ["Hackathon", "Computer Science"],
@@ -304,13 +303,13 @@ export const projects: Project[] = [
   {
     slug: "quran-memorization",
     title: "Religious Studies – Qur'an Memorization",
-    yearOrGrade: "Grade 6-11",
+    yearOrGrade: "Grade 11",
     type: "Personal Development / Religious Studies",
     role: "Student",
     tags: ["Personal Development"],
-    oneLineHook: "Multi-year commitment to memorizing and understanding the Qur'an",
+    oneLineHook: "Memorized the whole Qur'an within a year ! ",
     overview:
-      "Dedicated years to memorizing portions of the Qur'an through structured study with instructors. This discipline required daily practice, review, and understanding of meaning and context alongside memorization.",
+      "Dedicated myself to memorizing the Qur'an through structured study with instructors. This discipline required daily practice, review, and understanding of meaning and context alongside memorization.",
     problem:
       "I wanted to deepen my religious knowledge and develop the discipline required for long-term memorization. This required building sustainable habits, managing time effectively, and maintaining consistency despite other academic commitments.",
     processSteps: [
@@ -321,12 +320,12 @@ export const projects: Project[] = [
       "Balanced religious studies with academic and extracurricular commitments",
     ],
     impactBullets: [
-      "Memorized significant portions of the Qur'an over multi-year period",
+      "Memorized the whole Qur'an over within a year, which typically takes ~3 years",
       "Developed exceptional memory and concentration skills",
       "Built discipline and consistency through daily practice",
       "Strengthened time management abilities balancing multiple priorities",
     ],
-    tools: ["Memorization Techniques", "Discipline", "Time Management"],
+    tools: ["Tarteel", "Discipline", "Time Management"],
     coverImage: "/projects/quran-memorization/cover.jpg",
     galleryImages: ["/projects/quran-memorization/gallery-1.jpg"],
     relatedCertificateIds: ["quran-memorization"],
