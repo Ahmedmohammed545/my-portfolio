@@ -186,6 +186,21 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           </section>
         )}
 
+        {/* Link to External NASA Team Page */}
+        {project.externalUrl && (
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
+            <a
+              href={project.externalUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm underline underline-offset-4"
+            >
+              Official NASA Space Apps Team Page (Ultimatum 369)
+            </a>
+          </section>
+        )}
+
         {/* What I Learned */}
         {project.whatILearned && (
           <section className="mb-10">
@@ -230,3 +245,4 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     </div>
   )
 }
+
