@@ -272,6 +272,7 @@ export const projects: Project[] = [
   {
     slug: "nasa-space-apps",
     title: "NASA Space Apps Challenge",
+    externalUrl: "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/ultimatum-369/",
     yearOrGrade: "Grade 11",
     type: "Hackathon / Computer Science",
     role: "Team Member / Developer",
