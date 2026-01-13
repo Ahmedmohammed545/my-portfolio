@@ -453,7 +453,7 @@ export const certificates: Certificate[] = [
     image: "/certificates/addiscoder.jpg",
     description:
       "Completed intensive 5-week computer science program covering Python programming, data structures, and algorithms. Selected as one of ~50 students from ~1,000 applicants.",
-    relatedProjectSlugs: ["addiscoder", "prime-adcoder"],
+    relatedProjectSlugs: ["prime-adcoder"],
   },
   {
     id: "alx-hackathon",
@@ -462,6 +462,7 @@ export const certificates: Certificate[] = [
     year: "2023",
     image: "/certificates/alx-hackathon.jpg",
     description: "Awarded second place for developing an Expense Management System at the ALX Hackathon",
+    categories: ["Hackathon", "CS"],
     relatedProjectSlugs: ["alx-expense"],
   },
   {
@@ -492,4 +493,15 @@ export const certificates: Certificate[] = [
     description: "Recognition for memorizing significant portions of the Qur'an through years of dedicated study",
     relatedProjectSlugs: ["quran-memorization"],
   },
+  {
+  id: "coursera-calc",
+  title: "Stanford Maths",
+  issuer: "Stanford",
+  year: "2023",
+  image: "/certificates/coursera-calculus.jpg",
+  description: "Awarded for completing calculus course",
+  relatedProjectSlugs: [],
+  categories: ["CS"], 
+},
+
 ]
