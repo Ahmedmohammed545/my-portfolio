@@ -37,7 +37,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
         {/* Cover Image */}
         <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
-          <Image src={project.coverImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+          <Image src={project.coverImage  "/placeholder.svg"} alt={project.title} fill className="object-cover" />
           {project.awardBadge && (
             <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground text-base px-4 py-2">
               {project.awardBadge}
@@ -141,8 +141,8 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   <DialogTrigger asChild>
                     <div className="relative h-48 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
                       <Image
-                        src={image || "/placeholder.svg"}
-                        alt={`Gallery image ${index + 1}`}
+                        src={image  "/placeholder.svg"}
+                        alt={Gallery image ${index + 1}}
                         fill
                         className="object-cover"
                       />
@@ -151,7 +151,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   <DialogContent className="max-w-4xl">
                     <div className="relative w-full h-[70vh]">
                       <Image
-                        src={image || "/placeholder.svg"}
+                        src={image  "/placeholder.svg"}
                         alt={`Gallery image ${index + 1}`}
                         fill
                         className="object-contain"
@@ -173,7 +173,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 <Card key={cert.id} className="hover:shadow-md transition-shadow">
                   <CardContent className="p-4">
                     <div className="relative h-32 mb-3 rounded overflow-hidden bg-muted">
-                      <Image src={cert.image || "/placeholder.svg"} alt={cert.title} fill className="object-cover" />
+                      <Image src={cert.image  "/placeholder.svg"} alt={cert.title} fill className="object-cover" />
                     </div>
                     <h3 className="font-semibold mb-1">{cert.title}</h3>
                     <p className="text-sm text-muted-foreground">
@@ -186,34 +186,17 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           </section>
         )}
 
-        {/* Link to External NASA Team Page */}
-        {project.externalUrl && (
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
-            <a
-              href={project.externalUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm underline underline-offset-4"
-            >
-              Official NASA Space Apps Team Page (Ultimatum 369)
-            </a>
-          </section>
-        )}
-
         {/* What I Learned */}
         {project.whatILearned && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">What I Learned</h2>
             <p className="text-muted-foreground leading-relaxed">{project.whatILearned}</p>
           </section>
-        )}
-
-        {/* Navigation */}
+        )} {/* Navigation */}
         <div className="mt-16 pt-8 border-t">
           <div className="flex justify-between items-center">
             {prevProject ? (
-              <Link href={`/projects/${prevProject.slug}`}>
+              <Link href={/projects/${prevProject.slug}}>
                 <Button variant="outline">
                   <ChevronLeft className="mr-2 h-4 w-4" />
                   <div className="text-left">
@@ -227,7 +210,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             )}
 
             {nextProject ? (
-              <Link href={`/projects/${nextProject.slug}`}>
+              <Link href={/projects/${nextProject.slug}}>
                 <Button variant="outline">
                   <div className="text-right">
                     <div className="text-xs text-muted-foreground">Next</div>
@@ -245,4 +228,3 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
     </div>
   )
 }
-
