@@ -37,7 +37,13 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
 
         {/* Cover Image */}
         <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
-          <Image src={project.coverImage  "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+        <Image
+  src={project.coverImage || "/placeholder.svg"}
+  alt={project.title}
+  fill
+  className="object-cover"
+/>
+
           {project.awardBadge && (
             <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground text-base px-4 py-2">
               {project.awardBadge}
