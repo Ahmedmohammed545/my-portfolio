@@ -1,4 +1,4 @@
-dexport const CONTACT_EMAIL = "ahmedmohammedaddisababa@gmail.com"
+export const CONTACT_EMAIL = "ahmedmohammedaddisababa@gmail.com"
 
 export const siteMetadata = {
   name: "Ahmed Mohammedseid",
