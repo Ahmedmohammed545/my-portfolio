@@ -1,51 +1,52 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { certificates } from "@/lib/portfolioData"
 
-type CertFilterType = "All" | "CS" | "Hackathon" | "Service" | "Leadership" | "Research"
-
 export default function CertificatesPage() {
-  const [filter, setFilter] = useState<CertFilterType>("All")
+  const [filter, setFilter] = useState<string>("All")
 
-  // Map certificate IDs to filter categories
-  const getCertificateCategory = (certId: string): CertFilterType[] => {
-    const categoryMap: Record<string, CertFilterType[]> = {
-      addiscoder: ["CS"],
-      "alx-hackathon": ["Hackathon"],
-      "nasa-space-apps": ["Hackathon", "Research"],
-      "asteroid-hunting": ["Research"],
-      "quran-memorization": ["Leadership"],
-    }
-    return categoryMap[certId] || []
-  }
+  // Build filter options automatically from certificate categories
+  const filterOptions = useMemo(() => {
+    const allCats = new Set<string>()
+    certificates.forEach((c) => (c.categories || []).forEach((cat) => allCats.add(cat)))
+    return ["All", ...Array.from(allCats).sort()]
+  }, [])
 
-  // Filter certificates
-  const filteredCertificates =
-    filter === "All" ? certificates : certificates.filter((cert) => getCertificateCategory(cert.id).includes(filter))
-
-  const filterOptions: CertFilterType[] = ["All", "CS", "Hackathon", "Service", "Leadership", "Research"]
+  const filteredCertificates = useMemo(() => {
+    if (filter === "All") return certificates
+    return certificates.filter((cert) => (cert.categories || []).includes(filter))
+  }, [filter])
 
   return (
     <div className="min-h-screen py-12">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">Certificates</h1>
-          <p className="text-lg text-muted-foreground">
-            Recognition and proof of my achievements across various domains
-          </p>
+        <div className="mb-10">
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <h1 className="text-4xl font-bold mb-3">Certificates</h1>
+              <p className="text-lg text-muted-foreground">
+                Recognition and proof of my achievements across academics, technology, and community work.
+              </p>
+            </div>
+
+            <Badge variant="secondary" className="h-8 px-3">
+              {certificates.length} total
+            </Badge>
+          </div>
         </div>
 
         {/* Filters */}
         <div className="mb-8">
           <p className="text-sm font-medium mb-3">Filter by category:</p>
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-4">
             {filterOptions.map((option) => (
               <Button
                 key={option}
@@ -57,8 +58,16 @@ export default function CertificatesPage() {
               </Button>
             ))}
           </div>
+
           <p className="text-sm text-muted-foreground">
-            Showing {filteredCertificates.length} {filteredCertificates.length === 1 ? "certificate" : "certificates"}
+            Showing <span className="font-medium">{filteredCertificates.length}</span>{" "}
+            {filteredCertificates.length === 1 ? "certificate" : "certificates"}
+            {filter !== "All" ? (
+              <>
+                {" "}
+                in <span className="font-medium">{filter}</span>
+              </>
+            ) : null}
           </p>
         </div>
 
@@ -77,10 +86,22 @@ export default function CertificatesPage() {
                         className="object-cover rounded-t-lg"
                       />
                     </div>
+
                     <div className="p-5">
                       <h3 className="font-semibold mb-2 line-clamp-2">{cert.title}</h3>
                       <p className="text-sm text-muted-foreground mb-1">{cert.issuer}</p>
                       <p className="text-sm text-muted-foreground">{cert.year}</p>
+
+                      {/* Small category chips (optional but nice) */}
+                      {cert.categories && cert.categories.length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {cert.categories.slice(0, 3).map((cat) => (
+                            <Badge key={cat} variant="secondary" className="text-xs">
+                              {cat}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -110,10 +131,27 @@ export default function CertificatesPage() {
                       </div>
                     </div>
 
-                    <div className="mb-4">
-                      <p className="text-sm text-muted-foreground mb-2">Description</p>
-                      <p className="text-sm leading-relaxed">{cert.description}</p>
-                    </div>
+                    {/* Categories */}
+                    {cert.categories && cert.categories.length > 0 && (
+                      <div className="mb-4">
+                        <p className="text-sm text-muted-foreground mb-2">Categories</p>
+                        <div className="flex flex-wrap gap-2">
+                          {cert.categories.map((cat) => (
+                            <Badge key={cat} variant="secondary">
+                              {cat}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Description */}
+                    {cert.description && (
+                      <div className="mb-4">
+                        <p className="text-sm text-muted-foreground mb-2">Description</p>
+                        <p className="text-sm leading-relaxed">{cert.description}</p>
+                      </div>
+                    )}
 
                     {/* Related Projects */}
                     {cert.relatedProjectSlugs.length > 0 && (
@@ -146,3 +184,4 @@ export default function CertificatesPage() {
     </div>
   )
 }
+
