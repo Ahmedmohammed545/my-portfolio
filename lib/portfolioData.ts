@@ -27,7 +27,9 @@ export interface Certificate {
   image: string
   description: string
   relatedProjectSlugs: string[]
+  categories?: string[]   
 }
+
 
 export interface Honor {
   title: string
