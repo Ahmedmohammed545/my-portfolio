@@ -1,4 +1,4 @@
-dimport Link from "next/link"
+import Link from "next/link"
 import { CONTACT_EMAIL } from "@/lib/siteConfig"
 
 export function Footer() {
