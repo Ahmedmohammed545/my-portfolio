@@ -147,7 +147,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   <DialogTrigger asChild>
                     <div className="relative h-48 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
                       <Image
-                        src={image  "/placeholder.svg"}
+                        src={image || "/placeholder.svg"}
                         alt={Gallery image ${index + 1}}
                         fill
                         className="object-cover"
