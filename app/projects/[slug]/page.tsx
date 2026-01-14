@@ -157,7 +157,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   <DialogContent className="max-w-4xl">
                     <div className="relative w-full h-[70vh]">
                       <Image
-                        src={image  "/placeholder.svg"}
+                        src={image || "/placeholder.svg"}
                         alt={`Gallery image ${index + 1}`}
                         fill
                         className="object-contain"
