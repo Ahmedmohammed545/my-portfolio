@@ -1,9 +1,7 @@
-
-import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
+import { notFound } from "next/navigation"
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -14,7 +12,9 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   const { slug } = params
   const project = projects.find((p) => p.slug === slug)
 
-  if (!project) notFound()
+  if (!project) {
+    notFound()
+  }
 
   const currentIndex = projects.findIndex((p) => p.slug === slug)
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
@@ -34,16 +34,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </Link>
 
         {/* Cover Image */}
-        <div className="relative mb-8 h-64 overflow-hidden rounded-lg md:h-96">
-          <Image
-            src={project.coverImage || "/placeholder.svg"}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-          />
+        <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
+          <Image src={project.coverImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
           {project.awardBadge && (
-            <Badge className="absolute right-4 top-4 bg-primary text-base text-primary-foreground px-4 py-2">
+            <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground text-base px-4 py-2">
               {project.awardBadge}
             </Badge>
           )}
@@ -52,7 +46,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         {/* Title and Tags */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4 text-balance">{project.title}</h1>
-
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
               <Badge key={tag} variant="secondary">
@@ -60,7 +53,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               </Badge>
             ))}
           </div>
-
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             <span>
               <strong>Year/Grade:</strong> {project.yearOrGrade}
@@ -75,38 +67,38 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
 
         {/* One Line Hook */}
-        <div className="mb-8 rounded border-l-4 border-accent bg-accent/10 p-6">
+        <div className="mb-8 p-6 bg-accent/10 border-l-4 border-accent rounded">
           <p className="text-lg font-medium text-accent-foreground">{project.oneLineHook}</p>
         </div>
 
         {/* Overview */}
         <section className="mb-10">
-          <h2 className="mb-4 text-2xl font-bold">Overview</h2>
-          <p className="leading-relaxed text-muted-foreground">{project.overview}</p>
+          <h2 className="text-2xl font-bold mb-4">Overview</h2>
+          <p className="text-muted-foreground leading-relaxed">{project.overview}</p>
         </section>
 
         {/* My Role */}
         <section className="mb-10">
-          <h2 className="mb-4 text-2xl font-bold">My Role</h2>
-          <p className="leading-relaxed text-muted-foreground">{project.role}</p>
+          <h2 className="text-2xl font-bold mb-4">My Role</h2>
+          <p className="text-muted-foreground leading-relaxed">{project.role}</p>
         </section>
 
         {/* Problem */}
         <section className="mb-10">
-          <h2 className="mb-4 text-2xl font-bold">The Problem / Why It Mattered</h2>
-          <p className="leading-relaxed text-muted-foreground">{project.problem}</p>
+          <h2 className="text-2xl font-bold mb-4">The Problem / Why It Mattered</h2>
+          <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
         </section>
 
         {/* Process */}
         <section className="mb-10">
-          <h2 className="mb-4 text-2xl font-bold">Process</h2>
+          <h2 className="text-2xl font-bold mb-4">Process</h2>
           <ul className="space-y-3">
             {project.processSteps.map((step, index) => (
               <li key={index} className="flex gap-3">
-                <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
                   {index + 1}
                 </span>
-                <span className="leading-relaxed text-muted-foreground">{step}</span>
+                <span className="text-muted-foreground leading-relaxed">{step}</span>
               </li>
             ))}
           </ul>
@@ -114,12 +106,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
         {/* Impact */}
         <section className="mb-10">
-          <h2 className="mb-4 text-2xl font-bold">Impact & Results</h2>
+          <h2 className="text-2xl font-bold mb-4">Impact & Results</h2>
           <ul className="space-y-3">
             {project.impactBullets.map((impact, index) => (
               <li key={index} className="flex gap-3">
                 <span className="text-accent text-xl">•</span>
-                <span className="leading-relaxed text-muted-foreground">{impact}</span>
+                <span className="text-muted-foreground leading-relaxed">{impact}</span>
               </li>
             ))}
           </ul>
@@ -127,7 +119,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
         {/* Tools & Technologies */}
         <section className="mb-10">
-          <h2 className="mb-4 text-2xl font-bold">Tools & Technologies</h2>
+          <h2 className="text-2xl font-bold mb-4">Tools & Technologies</h2>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
               <Badge key={tool} variant="outline">
@@ -140,12 +132,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         {/* Gallery */}
         {project.galleryImages.length > 0 && (
           <section className="mb-10">
-            <h2 className="mb-4 text-2xl font-bold">Gallery</h2>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <h2 className="text-2xl font-bold mb-4">Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {project.galleryImages.map((image, index) => (
                 <Dialog key={index}>
                   <DialogTrigger asChild>
-                    <div className="relative h-48 cursor-pointer overflow-hidden rounded-lg transition-opacity hover:opacity-90">
+                    <div className="relative h-48 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
                       <Image
                         src={image || "/placeholder.svg"}
                         alt={`Gallery image ${index + 1}`}
@@ -154,9 +146,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                       />
                     </div>
                   </DialogTrigger>
-
                   <DialogContent className="max-w-4xl">
-                    <div className="relative h-[70vh] w-full">
+                    <div className="relative w-full h-[70vh]">
                       <Image
                         src={image || "/placeholder.svg"}
                         alt={`Gallery image ${index + 1}`}
@@ -174,15 +165,15 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         {/* Certificates & Proof */}
         {relatedCertificates.length > 0 && (
           <section className="mb-10">
-            <h2 className="mb-4 text-2xl font-bold">Certificates & Proof</h2>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <h2 className="text-2xl font-bold mb-4">Certificates & Proof</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {relatedCertificates.map((cert) => (
-                <Card key={cert.id} className="transition-shadow hover:shadow-md">
+                <Card key={cert.id} className="hover:shadow-md transition-shadow">
                   <CardContent className="p-4">
-                    <div className="relative mb-3 h-32 overflow-hidden rounded bg-muted">
+                    <div className="relative h-32 mb-3 rounded overflow-hidden bg-muted">
                       <Image src={cert.image || "/placeholder.svg"} alt={cert.title} fill className="object-cover" />
                     </div>
-                    <h3 className="mb-1 font-semibold">{cert.title}</h3>
+                    <h3 className="font-semibold mb-1">{cert.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {cert.issuer} • {cert.year}
                     </p>
@@ -193,9 +184,32 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </section>
         )}
 
+        {/* External Link (only shows when present) */}
+        {"externalUrl" in project && (project as any).externalUrl && (
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
+            <a
+              href={(project as any).externalUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm underline underline-offset-4"
+            >
+              View official page →
+            </a>
+          </section>
+        )}
+
+        {/* What I Learned */}
+        {project.whatILearned && (
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4">What I Learned</h2>
+            <p className="text-muted-foreground leading-relaxed">{project.whatILearned}</p>
+          </section>
+        )}
+
         {/* Navigation */}
-        <div className="mt-16 border-t pt-8">
-          <div className="flex items-center justify-between">
+        <div className="mt-16 pt-8 border-t">
+          <div className="flex justify-between items-center">
             {prevProject ? (
               <Link href={`/projects/${prevProject.slug}`}>
                 <Button variant="outline">
