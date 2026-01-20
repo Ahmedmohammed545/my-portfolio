@@ -2,24 +2,24 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { notFound } from "next/navigation"
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import type { Project, Certificate } from "@/lib/portfolioData"
+import { projects, certificates } from "@/lib/portfolioData"
 
-export default function ProjectDetailClient({
-  project,
-  prevProject,
-  nextProject,
-  relatedCertificates,
-}: {
-  project: Project
-  prevProject: Project | null
-  nextProject: Project | null
-  relatedCertificates: Certificate[]
-}) {
+export default function ProjectDetailClient({ slug }: { slug: string }) {
+  const project = projects.find((p) => p.slug === slug)
+  if (!project) notFound()
+
+  const currentIndex = projects.findIndex((p) => p.slug === slug)
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
+  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
+
+  const relatedCertificates = certificates.filter((cert) => project.relatedCertificateIds.includes(cert.id))
+
   return (
     <div className="min-h-screen py-12">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -75,12 +75,6 @@ export default function ProjectDetailClient({
           <p className="text-muted-foreground leading-relaxed">{project.overview}</p>
         </section>
 
-        {/* My Role */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-4">My Role</h2>
-          <p className="text-muted-foreground leading-relaxed">{project.role}</p>
-        </section>
-
         {/* Problem */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">The Problem / Why It Mattered</h2>
@@ -127,8 +121,23 @@ export default function ProjectDetailClient({
           </div>
         </section>
 
+        {/* External Link */}
+        {project.externalUrl && (
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
+            <a
+              href={project.externalUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm underline underline-offset-4"
+            >
+              View official page →
+            </a>
+          </section>
+        )}
+
         {/* Gallery */}
-        {project.galleryImages.length > 0 && (
+        {project.galleryImages?.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Gallery</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -160,7 +169,7 @@ export default function ProjectDetailClient({
           </section>
         )}
 
-        {/* Certificates & Proof */}
+        {/* Certificates */}
         {relatedCertificates.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Certificates & Proof</h2>
@@ -179,29 +188,6 @@ export default function ProjectDetailClient({
                 </Card>
               ))}
             </div>
-          </section>
-        )}
-
-        {/* Official Link (optional) */}
-        {project.externalUrl && (
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
-            <a
-              href={project.externalUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm underline underline-offset-4"
-            >
-              View official page →
-            </a>
-          </section>
-        )}
-
-        {/* What I Learned */}
-        {project.whatILearned && (
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4">What I Learned</h2>
-            <p className="text-muted-foreground leading-relaxed">{project.whatILearned}</p>
           </section>
         )}
 
