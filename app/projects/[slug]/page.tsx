@@ -25,5 +25,3 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
   return <ProjectDetailClient slug={params.slug} />
 }
-
-
