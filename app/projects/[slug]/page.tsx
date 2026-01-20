@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation"
 import { projects } from "@/lib/portfolioData"
 import ProjectDetailClient from "@/components/project-detail-client"
 
@@ -7,24 +8,22 @@ export function generateStaticParams() {
   }))
 }
 
-export default function ProjectDetailPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
+type PageProps = {
+  params: {
+    slug: string
+  }
+}
+
+export default function ProjectDetailPage({ params }: PageProps) {
   const project = projects.find(
-    (project) => project.slug === params.slug
+    (p) => p.slug === params.slug
   )
 
-  // Optional safety check (keeps your app from crashing)
   if (!project) {
-    return (
-      <div className="p-8 text-center">
-        <h1 className="text-2xl font-bold">Project not found</h1>
-      </div>
-    )
+    notFound()
   }
 
   return <ProjectDetailClient slug={params.slug} />
 }
+
 
