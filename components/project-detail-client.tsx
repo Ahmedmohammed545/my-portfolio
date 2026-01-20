@@ -12,18 +12,23 @@ import { projects, certificates } from "@/lib/portfolioData"
 
 export default function ProjectDetailClient({ slug }: { slug: string }) {
   const project = projects.find((p) => p.slug === slug)
-  if (!project) notFound()
+
+  if (!project) {
+    notFound()
+  }
 
   const currentIndex = projects.findIndex((p) => p.slug === slug)
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
 
-  const relatedCertificates = certificates.filter((cert) => project.relatedCertificateIds.includes(cert.id))
+  const relatedCertificates = certificates.filter((cert) =>
+    project.relatedCertificateIds.includes(cert.id)
+  )
 
   return (
     <div className="min-h-screen py-12">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
+        {/* Back */}
         <Link href="/projects">
           <Button variant="ghost" className="mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -31,9 +36,14 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           </Button>
         </Link>
 
-        {/* Cover Image */}
+        {/* Cover */}
         <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
-          <Image src={project.coverImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+          <Image
+            src={project.coverImage || "/placeholder.svg"}
+            alt={project.title}
+            fill
+            className="object-cover"
+          />
           {project.awardBadge && (
             <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground text-base px-4 py-2">
               {project.awardBadge}
@@ -41,9 +51,9 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           )}
         </div>
 
-        {/* Title and Tags */}
+        {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-balance">{project.title}</h1>
+          <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
               <Badge key={tag} variant="secondary">
@@ -52,45 +62,39 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             ))}
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <span>
-              <strong>Year/Grade:</strong> {project.yearOrGrade}
-            </span>
-            <span>
-              <strong>Role:</strong> {project.role}
-            </span>
-            <span>
-              <strong>Type:</strong> {project.type}
-            </span>
+            <span><strong>Year/Grade:</strong> {project.yearOrGrade}</span>
+            <span><strong>Role:</strong> {project.role}</span>
+            <span><strong>Type:</strong> {project.type}</span>
           </div>
         </div>
 
-        {/* One Line Hook */}
+        {/* Hook */}
         <div className="mb-8 p-6 bg-accent/10 border-l-4 border-accent rounded">
-          <p className="text-lg font-medium text-accent-foreground">{project.oneLineHook}</p>
+          <p className="text-lg font-medium">{project.oneLineHook}</p>
         </div>
 
         {/* Overview */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">Overview</h2>
-          <p className="text-muted-foreground leading-relaxed">{project.overview}</p>
+          <p className="text-muted-foreground">{project.overview}</p>
         </section>
 
         {/* Problem */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-4">The Problem / Why It Mattered</h2>
-          <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
+          <h2 className="text-2xl font-bold mb-4">The Problem</h2>
+          <p className="text-muted-foreground">{project.problem}</p>
         </section>
 
         {/* Process */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">Process</h2>
           <ul className="space-y-3">
-            {project.processSteps.map((step, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
-                  {index + 1}
+            {project.processSteps.map((step, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm">
+                  {i + 1}
                 </span>
-                <span className="text-muted-foreground leading-relaxed">{step}</span>
+                <span className="text-muted-foreground">{step}</span>
               </li>
             ))}
           </ul>
@@ -98,69 +102,32 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
         {/* Impact */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-4">Impact & Results</h2>
+          <h2 className="text-2xl font-bold mb-4">Impact</h2>
           <ul className="space-y-3">
-            {project.impactBullets.map((impact, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="text-accent text-xl">•</span>
-                <span className="text-muted-foreground leading-relaxed">{impact}</span>
+            {project.impactBullets.map((impact, i) => (
+              <li key={i} className="flex gap-3">
+                <span>•</span>
+                <span className="text-muted-foreground">{impact}</span>
               </li>
             ))}
           </ul>
         </section>
 
-        {/* Tools & Technologies */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-4">Tools & Technologies</h2>
-          <div className="flex flex-wrap gap-2">
-            {project.tools.map((tool) => (
-              <Badge key={tool} variant="outline">
-                {tool}
-              </Badge>
-            ))}
-          </div>
-        </section>
-
-        {/* External Link */}
-        {project.externalUrl && (
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
-            <a
-              href={project.externalUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm underline underline-offset-4"
-            >
-              View official page →
-            </a>
-          </section>
-        )}
-
         {/* Gallery */}
-        {project.galleryImages?.length > 0 && (
+        {project.galleryImages.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Gallery</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {project.galleryImages.map((image, index) => (
-                <Dialog key={index}>
+              {project.galleryImages.map((img, i) => (
+                <Dialog key={i}>
                   <DialogTrigger asChild>
-                    <div className="relative h-48 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                      <Image
-                        src={image || "/placeholder.svg"}
-                        alt={`Gallery image ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="relative h-48 rounded-lg overflow-hidden cursor-pointer">
+                      <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-cover" />
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-4xl">
                     <div className="relative w-full h-[70vh]">
-                      <Image
-                        src={image || "/placeholder.svg"}
-                        alt={`Gallery image ${index + 1}`}
-                        fill
-                        className="object-contain"
-                      />
+                      <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-contain" />
                     </div>
                   </DialogContent>
                 </Dialog>
@@ -169,59 +136,40 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           </section>
         )}
 
-        {/* Certificates */}
-        {relatedCertificates.length > 0 && (
+        {/* External Link */}
+        {(project as any).externalUrl && (
           <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4">Certificates & Proof</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {relatedCertificates.map((cert) => (
-                <Card key={cert.id} className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-4">
-                    <div className="relative h-32 mb-3 rounded overflow-hidden bg-muted">
-                      <Image src={cert.image || "/placeholder.svg"} alt={cert.title} fill className="object-cover" />
-                    </div>
-                    <h3 className="font-semibold mb-1">{cert.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {cert.issuer} • {cert.year}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <h2 className="text-2xl font-bold mb-4">Official Link</h2>
+            <a
+              href={(project as any).externalUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              View official page →
+            </a>
           </section>
         )}
 
         {/* Navigation */}
-        <div className="mt-16 pt-8 border-t">
-          <div className="flex justify-between items-center">
-            {prevProject ? (
-              <Link href={`/projects/${prevProject.slug}`}>
-                <Button variant="outline">
-                  <ChevronLeft className="mr-2 h-4 w-4" />
-                  <div className="text-left">
-                    <div className="text-xs text-muted-foreground">Previous</div>
-                    <div className="font-medium">{prevProject.title}</div>
-                  </div>
-                </Button>
-              </Link>
-            ) : (
-              <div />
-            )}
+        <div className="mt-16 pt-8 border-t flex justify-between">
+          {prevProject ? (
+            <Link href={`/projects/${prevProject.slug}`}>
+              <Button variant="outline">
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                {prevProject.title}
+              </Button>
+            </Link>
+          ) : <div />}
 
-            {nextProject ? (
-              <Link href={`/projects/${nextProject.slug}`}>
-                <Button variant="outline">
-                  <div className="text-right">
-                    <div className="text-xs text-muted-foreground">Next</div>
-                    <div className="font-medium">{nextProject.title}</div>
-                  </div>
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            ) : (
-              <div />
-            )}
-          </div>
+          {nextProject ? (
+            <Link href={`/projects/${nextProject.slug}`}>
+              <Button variant="outline">
+                {nextProject.title}
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          ) : <div />}
         </div>
       </div>
     </div>
