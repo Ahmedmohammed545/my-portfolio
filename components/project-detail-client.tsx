@@ -9,8 +9,21 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { projects, certificates } from "@/lib/portfolioData"
 
+const normalizeSlug = (value: string) =>
+  decodeURIComponent(value).trim().toLowerCase().replace(/\/+$/, "")
+
+const toTitleSlug = (title: string) =>
+  title
+    .trim()
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+
 export default function ProjectDetailClient({ slug }: { slug: string }) {
-  const project = projects.find((p) => p.slug === slug)
+  const normalizedSlug = normalizeSlug(slug)
+  const project =
+    projects.find((p) => normalizeSlug(p.slug) === normalizedSlug) ??
+    projects.find((p) => toTitleSlug(p.title) === normalizedSlug)
 
   if (!project) {
     return (
