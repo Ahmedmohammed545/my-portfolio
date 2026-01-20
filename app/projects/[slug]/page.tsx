@@ -14,9 +14,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   const { slug } = params
   const project = projects.find((p) => p.slug === slug)
 
-  if (!project) {
-    notFound()
-  }
+  if (!project) notFound()
 
   const currentIndex = projects.findIndex((p) => p.slug === slug)
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null
@@ -27,7 +25,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   return (
     <div className="min-h-screen py-12">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
         <Link href="/projects">
           <Button variant="ghost" className="mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -35,7 +32,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </Button>
         </Link>
 
-        {/* Cover Image */}
         <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
           <Image src={project.coverImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
           {project.awardBadge && (
@@ -45,7 +41,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           )}
         </div>
 
-        {/* Title and Tags */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4 text-balance">{project.title}</h1>
           <div className="flex flex-wrap gap-2 mb-4">
@@ -68,30 +63,25 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </div>
         </div>
 
-        {/* One Line Hook */}
         <div className="mb-8 p-6 bg-accent/10 border-l-4 border-accent rounded">
           <p className="text-lg font-medium text-accent-foreground">{project.oneLineHook}</p>
         </div>
 
-        {/* Overview */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">Overview</h2>
           <p className="text-muted-foreground leading-relaxed">{project.overview}</p>
         </section>
 
-        {/* My Role */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">My Role</h2>
           <p className="text-muted-foreground leading-relaxed">{project.role}</p>
         </section>
 
-        {/* Problem */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">The Problem / Why It Mattered</h2>
           <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
         </section>
 
-        {/* Process */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">Process</h2>
           <ul className="space-y-3">
@@ -106,7 +96,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </ul>
         </section>
 
-        {/* Impact */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">Impact & Results</h2>
           <ul className="space-y-3">
@@ -119,7 +108,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </ul>
         </section>
 
-        {/* Tools & Technologies */}
         <section className="mb-10">
           <h2 className="text-2xl font-bold mb-4">Tools & Technologies</h2>
           <div className="flex flex-wrap gap-2">
@@ -131,7 +119,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </div>
         </section>
 
-        {/* Gallery */}
         {project.galleryImages.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Gallery</h2>
@@ -164,7 +151,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </section>
         )}
 
-        {/* Certificates & Proof */}
         {relatedCertificates.length > 0 && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Certificates & Proof</h2>
@@ -186,7 +172,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </section>
         )}
 
-        {/* External Link (only if it exists in data) */}
         {(project as any).externalUrl && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Official Team Page</h2>
@@ -201,7 +186,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </section>
         )}
 
-        {/* What I Learned */}
         {project.whatILearned && (
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">What I Learned</h2>
@@ -209,7 +193,6 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </section>
         )}
 
-        {/* Navigation */}
         <div className="mt-16 pt-8 border-t">
           <div className="flex justify-between items-center">
             {prevProject ? (
