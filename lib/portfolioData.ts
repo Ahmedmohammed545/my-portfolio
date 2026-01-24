@@ -493,135 +493,155 @@ export const certificates: Certificate[] = [
     description: "Recognition for memorizing significant portions of the Qur'an through years of dedicated study",
     relatedProjectSlugs: ["quran-memorization"],
   },
-  {
-    "id": "calc-sydney",
-    "title": "Introduction to Calculus",
-    "issuer": "University of Sydney (Coursera)",
-    "year": 2023,
-    "description": "Completed a university-level calculus course covering limits, derivatives, and integrals.",
-    "category": "Academic",
-    "image": "/certificates/coursera-calculus.jpg"
+    {
+    id: "calc-sydney",
+    title: "Introduction to Calculus",
+    issuer: "University of Sydney (Coursera)",
+    year: "2023",
+    image: "/certificates/coursera-calculus.jpg",
+    description: "Completed a university-level calculus course covering limits, derivatives, and integrals.",
+    relatedProjectSlugs: [],
+    categories: ["Academic"]
   },
   {
-    "id": "grade8-city-award",
-    "title": "Certificate of Appreciation",
-    "issuer": "Addis Ababa City Administration Education Bureau",
-    "year": 2021,
-    "description": "Recognized for outstanding performance in the Grade 8 regional examination at the city level.",
-    "category": "Academic",
-    "image": "/certificates/national.jpg"
+    id: "grade8-city-award",
+    title: "Certificate of Appreciation",
+    issuer: "Addis Ababa City Administration Education Bureau",
+    year: "2021",
+    image: "/certificates/national.jpg",
+    description: "Recognized for outstanding performance in the Grade 8 regional examination at the city level.",
+    relatedProjectSlugs: [],
+    categories: ["Academic"]
   },
   {
-    "id": "africoders-python",
-    "title": "Python Programming & Data Structures",
-    "issuer": "AfriCoders",
-    "year": 2023,
-    "description": "Completed intensive training in Python, data structures, and algorithmic problem-solving.",
-    "category": "STEM",
-    "image": "/certificates/afri.jpg"
+    id: "africoders-python",
+    title: "Python Programming & Data Structures",
+    issuer: "AfriCoders",
+    year: "2023",
+    image: "/certificates/afri.jpg",
+    description: "Completed intensive training in Python, data structures, and algorithmic problem-solving.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   },
   {
-    "id": "ibm-ai",
-    "title": "Introduction to Artificial Intelligence",
-    "issuer": "IBM (Coursera)",
-    "year": 2023,
-    "description": "Completed a foundational course on AI concepts, ethics, and real-world applications.",
-    "category": "STEM",
-    "image": "/certificates/ai.jpg"
+    id: "ibm-ai",
+    title: "Introduction to Artificial Intelligence",
+    issuer: "IBM (Coursera)",
+    year: "2023",
+    image: "/certificates/ai.jpg",
+    description: "Completed a foundational course on AI concepts, ethics, and real-world applications.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   },
   {
-    "id": "iaac-2023",
-    "title": "International Astronomy & Astrophysics Competition",
-    "issuer": "IAAC",
-    "year": 2023,
-    "description": "Qualified to the pre-final round by solving advanced astronomy and astrophysics problems.",
-    "category": "STEM",
-    "image": "/certificates/astronomy.jpg"
+    id: "iaac-2023",
+    title: "International Astronomy & Astrophysics Competition",
+    issuer: "IAAC",
+    year: "2023",
+    image: "/certificates/astronomy.jpg",
+    description: "Qualified to the pre-final round by solving advanced astronomy and astrophysics problems.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   },
   {
-    "id": "bits-hackathon",
-    "title": "BITS Hackathon Participation",
-    "issuer": "BITS",
-    "year": 2023,
-    "description": "Participated in a competitive hackathon focused on teamwork and rapid problem-solving.",
-    "category": "STEM",
-    "image": "/certificates/bits.jpg"
+    id: "bits-hackathon",
+    title: "BITS Hackathon Participation",
+    issuer: "BITS",
+    year: "2023",
+    image: "/certificates/bits.jpg",
+    description: "Participated in a competitive hackathon focused on teamwork and rapid problem-solving.",
+    relatedProjectSlugs: [],
+    categories: ["Hackathon", "STEM"]
   },
   {
-    "id": "lebawi-summer",
-    "title": "Lebawi International Academy Summer Program",
-    "issuer": "Lebawi International Academy",
-    "year": 2022,
-    "description": "Completed advanced coursework including calculus, coding, geopolitics, and MUN studies.",
-    "category": "Academic",
-    "image": "/certificates/calc.jpg"
+    id: "lebawi-summer",
+    title: "Lebawi International Academy Summer Program",
+    issuer: "Lebawi International Academy",
+    year: "2022",
+    image: "/certificates/calc.jpg",
+    description: "Completed advanced coursework including calculus, coding, geopolitics, and MUN studies.",
+    relatedProjectSlugs: [],
+    categories: ["Academic"]
   },
   {
-    "id": "mun-best-delegate",
-    "title": "Best Delegate – Model United Nations",
-    "issuer": "Lebawi International Academy",
-    "year": 2022,
-    "description": "Awarded Best Delegate for exceptional research, diplomacy, and debate performance.",
-    "category": "Leadership",
-    "image": "/certificates/china.jpg"
+    id: "mun-best-delegate",
+    title: "Best Delegate – Model United Nations",
+    issuer: "Lebawi International Academy",
+    year: "2022",
+    image: "/certificates/china.jpg",
+    description: "Awarded Best Delegate for exceptional research, diplomacy, and debate performance.",
+    relatedProjectSlugs: ["mun"],
+    categories: ["Leadership"]
   },
   {
-    "id": "civil-aviation-expo",
-    "title": "Civil Aviation Innovation Expo Participation",
-    "issuer": "Ethiopian Civil Aviation Authority",
-    "year": 2023,
-    "description": "Recognized for active participation in a national innovation and science exhibition.",
-    "category": "STEM",
-    "image": "/certificates/civil-aviation.jpg"
+    id: "civil-aviation-expo",
+    title: "Civil Aviation Innovation Expo Participation",
+    issuer: "Ethiopian Civil Aviation Authority",
+    year: "2023",
+    image: "/certificates/civil-aviation.jpg",
+    description: "Recognized for active participation in a national innovation and science exhibition.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   },
   {
-    "id": "climate-olympiad",
-    "title": "ClimateScience Olympiad – Quarter Finalist",
-    "issuer": "ClimateScience",
-    "year": 2024,
-    "description": "Selected as a quarter finalist for strong performance in climate science challenges.",
-    "category": "Academic",
-    "image": "/certificates/climate.jpg"
-  }, 
-   {
-    "id": "umich-python",
-    "title": "Programming for Everybody (Python)",
-    "issuer": "University of Michigan (Coursera)",
-    "year": "2023",
-    "image": "/certificates/umich-python.jpg",
-    "description": "Gained foundational skills in Python programming, problem-solving, and computational thinking."
+    id: "climate-olympiad",
+    title: "ClimateScience Olympiad – Quarter Finalist",
+    issuer: "ClimateScience",
+    year: "2024",
+    image: "/certificates/climate.jpg",
+    description: "Selected as a quarter finalist for strong performance in climate science challenges.",
+    relatedProjectSlugs: [],
+    categories: ["Academic"]
   },
   {
-    "id": "jhu-web-dev",
-    "title": "HTML, CSS, and JavaScript for Web Developers",
-    "issuer": "Johns Hopkins University (Coursera)",
-    "year": "2023",
-    "image": "/certificates/html.jpg",
-    "description": "Learned front-end web development fundamentals including responsive design and JavaScript-based interactivity."
+    id: "umich-python",
+    title: "Programming for Everybody (Python)",
+    issuer: "University of Michigan (Coursera)",
+    year: "2023",
+    image: "/certificates/html.jpg",
+    description: "Gained foundational skills in Python programming, problem-solving, and computational thinking.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   },
   {
-    "id": "meta-digital-world",
-    "title": "My Digital World Training",
-    "issuer": "KEMMCOM & Meta",
-    "year": "2023",
-    "image": "/certificates/meta.jpg",
-    "description": "Completed training focused on digital skills, online presence, and responsible use of digital platforms."
+    id: "jhu-web-dev",
+    title: "HTML, CSS, and JavaScript for Web Developers",
+    issuer: "Johns Hopkins University (Coursera)",
+    year: "2023",
+    image: "/certificates/html.jpg",
+    description: "Learned front-end web development fundamentals including responsive design and JavaScript-based interactivity.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   },
   {
-    "id": "stanford-ml",
-    "title": "Supervised Machine Learning",
-    "issuer": "DeepLearning.AI & Stanford University (Coursera)",
-    "year": "2023",
-    "image": "/certificates/ml.jpg",
-    "description": "Studied supervised learning methods including regression, classification, and model evaluation."
+    id: "meta-digital-world",
+    title: "My Digital World Training",
+    issuer: "KEMMCOM & Meta",
+    year: "2023",
+    image: "/certificates/meta.jpg",
+    description: "Completed training focused on digital skills, online presence, and responsible use of digital platforms.",
+    relatedProjectSlugs: [],
+    categories: ["Personal Development"]
   },
   {
-    "id": "stanford-advanced-ml",
-    "title": "Advanced Learning Algorithms",
-    "issuer": "DeepLearning.AI & Stanford University (Coursera)",
-    "year": "2024",
-    "image": "/certificates/nural.jpg",
-    "description": "Explored advanced machine learning techniques including neural networks, optimization, and regularization."
+    id: "stanford-ml",
+    title: "Supervised Machine Learning",
+    issuer: "DeepLearning.AI & Stanford University (Coursera)",
+    year: "2023",
+    image: "/certificates/ml.jpg",
+    description: "Studied supervised learning methods including regression, classification, and model evaluation.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
+  },
+  {
+    id: "stanford-advanced-ml",
+    title: "Advanced Learning Algorithms",
+    issuer: "DeepLearning.AI & Stanford University (Coursera)",
+    year: "2024",
+    image: "/certificates/nural.jpg",
+    description: "Explored advanced machine learning techniques including neural networks, optimization, and regularization.",
+    relatedProjectSlugs: [],
+    categories: ["STEM"]
   }
 
 ]
