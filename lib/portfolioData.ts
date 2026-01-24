@@ -582,6 +582,46 @@ export const certificates: Certificate[] = [
     "description": "Selected as a quarter finalist for strong performance in climate science challenges.",
     "category": "Academic",
     "image": "/certificates/climate.jpg"
+  }, 
+   {
+    "id": "umich-python",
+    "title": "Programming for Everybody (Python)",
+    "issuer": "University of Michigan (Coursera)",
+    "year": "2023",
+    "image": "/certificates/umich-python.jpg",
+    "description": "Gained foundational skills in Python programming, problem-solving, and computational thinking."
   },
+  {
+    "id": "jhu-web-dev",
+    "title": "HTML, CSS, and JavaScript for Web Developers",
+    "issuer": "Johns Hopkins University (Coursera)",
+    "year": "2023",
+    "image": "/certificates/html.jpg",
+    "description": "Learned front-end web development fundamentals including responsive design and JavaScript-based interactivity."
+  },
+  {
+    "id": "meta-digital-world",
+    "title": "My Digital World Training",
+    "issuer": "KEMMCOM & Meta",
+    "year": "2023",
+    "image": "/certificates/meta.jpg",
+    "description": "Completed training focused on digital skills, online presence, and responsible use of digital platforms."
+  },
+  {
+    "id": "stanford-ml",
+    "title": "Supervised Machine Learning",
+    "issuer": "DeepLearning.AI & Stanford University (Coursera)",
+    "year": "2023",
+    "image": "/certificates/ml.jpg",
+    "description": "Studied supervised learning methods including regression, classification, and model evaluation."
+  },
+  {
+    "id": "stanford-advanced-ml",
+    "title": "Advanced Learning Algorithms",
+    "issuer": "DeepLearning.AI & Stanford University (Coursera)",
+    "year": "2024",
+    "image": "/certificates/nural.jpg",
+    "description": "Explored advanced machine learning techniques including neural networks, optimization, and regularization."
+  }
 
 ]
