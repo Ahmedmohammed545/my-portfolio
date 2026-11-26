@@ -49,7 +49,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Ahmed Mohammedseid. All rights reserved.
+          © {new Date().getFullYear()} Ahmed Mohammedseid Ayele. All rights reserved.
         </div>
       </div>
     </footer>
