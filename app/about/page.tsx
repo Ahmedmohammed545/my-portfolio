@@ -20,7 +20,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold mb-6">My Story</h2>
           <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-4">
             <p>
-              I'm a high school student from Addis Ababa, Ethiopia, passionate about using technology to solve real
+             I'm a Computer science and engineering student at the American University of Beirut who's into using technology to solve real
               problems and create positive impact in my community. My journey in computer science began with curiosity
               about how software works, and has evolved into a commitment to building systems that help others.
             </p>
