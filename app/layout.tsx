@@ -13,7 +13,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Ahmed Mohammed- Portfolio",
   description:
-    "Building technology for positive impact. High school student passionate about computer science, community service, and leadership.",
+    "I'm a Computer science and engineering student at the American University of Beirut who's into using technology to solve real problems and create positive impact in my community.",
   generator: "v0.app",
   icons: {
     icon: [
