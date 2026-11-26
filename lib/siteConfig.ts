@@ -1,8 +1,8 @@
 export const CONTACT_EMAIL = "ahmedmohammedaddisababa@gmail.com"
 
 export const siteMetadata = {
-  name: "Ahmed Mohammedseid",
-  tagline: "Building technology for positive impact",
+  name: "Ahmed Ayele",
+  tagline: "Learning to make positive impact",
   shortBio:
-    "High school student passionate about leveraging technology to create meaningful change in my community and beyond.",
+    "First year Computer Science and Engineering student @ AUB Mediterraneo learning algorithms, mathematics, and machine learning.",
 }
